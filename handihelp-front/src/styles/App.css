@@ -1,0 +1,23 @@
+#navBarNavigation .active  {
+    border-bottom: solid grey thin;
+}
+.navbar-brand
+{
+    width: 60%;
+    left: 0;
+    text-align: left;
+    margin:0 auto;
+}
+
+@media screen and (min-width: 1200px) {
+    .navbar-brand
+    {
+        width: 68%;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .navbar-brand
+    {
+        width: 70%;
+    }
+}

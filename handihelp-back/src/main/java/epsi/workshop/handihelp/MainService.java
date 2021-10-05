@@ -90,17 +90,47 @@ public class MainService {
         mission1.setCreateur(user1);
         mission1.setBenevole(user2);
         mission1.setTitre("Mission 1");
+        mission1.setDateHeure("Le 07 Octobre 2021 à 14h00");
+        mission1.setDuree("1H");
+        mission1.setLieu("Cours de C#");
+        mission1.setEtablissement(etablissement1);
         mission1.setDescription("Une super mission à faire pour rendre service à quelqu'un");
-        mission1.setStatutMission(statutMission2);
+        mission1.setStatutMission(statutMission3);
         missionService.saveMission(mission1);
+
         Mission mission2 = new Mission();
         mission2.setCreateur(user1);
         mission2.setBenevole(user2);
         mission2.setTitre("Mission 2");
+        mission2.setDateHeure("Le 15 Octobre 2021 à 10h30");
+        mission2.setDuree("30min");
+        mission2.setLieu("Locaux de l'EPSI");
+        mission2.setEtablissement(etablissement1);
         mission2.setDescription("Une deuxième super mission à faire pour rendre service à quelqu'un");
         mission2.setStatutMission(statutMission2);
         missionService.saveMission(mission2);
 
+        Mission mission3 = new Mission();
+        mission3.setCreateur(user1);
+        mission3.setTitre("Mission 3");
+        mission3.setDateHeure("Le 22 Octobre 2021 à 8H00");
+        mission3.setDuree("30min");
+        mission3.setLieu("Trajet domicile / centre de formation");
+        mission3.setEtablissement(etablissement2);
+        mission3.setDescription("Une troisième super mission à faire pour rendre service à quelqu'un");
+        mission3.setStatutMission(statutMission1);
+        missionService.saveMission(mission3);
+
+        Mission mission4 = new Mission();
+        mission4.setCreateur(user1);
+        mission4.setTitre("Mission 4");
+        mission4.setDateHeure("Le 22 Octobre 2021 à 12H00");
+        mission4.setDuree("30min");
+        mission4.setLieu("Caffeteria");
+        mission4.setEtablissement(etablissement2);
+        mission4.setDescription("Une quatrième super mission à faire pour rendre service à quelqu'un");
+        mission4.setStatutMission(statutMission1);
+        missionService.saveMission(mission4);
 
         return "{'status' : 'ok'}";
     }
