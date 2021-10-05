@@ -8,15 +8,17 @@ import Missions from "./pages/Missions";
 
 const App = () => {
   return (
-    <HashRouter>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route component={NotFound} />
-        <Route path="/profil" component={Profil} />
-        <Route path="/missions" component={Missions} />
-        <Route path="/contact" component={Contact} />
-      </Switch>
-    </HashRouter>
+    <>
+      <HashRouter>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/profil" component={Profil} />
+          <Route path="/missions" component={Missions} />
+          <Route path="/contact" component={Contact} />
+          <Route component={NotFound} />
+        </Switch>
+      </HashRouter>
+    </>
   );
 };
 

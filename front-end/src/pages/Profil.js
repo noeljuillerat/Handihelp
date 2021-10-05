@@ -1,10 +1,20 @@
 import React from "react";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 const Profil = () => {
   return (
-    <div>
-      <h1>Profil</h1>
-    </div>
+    <main>
+      <header>
+        <h1>Profil</h1>
+        <Navigation />
+      </header>
+
+      <section></section>
+      <footer>
+        <Footer />
+      </footer>
+    </main>
   );
 };
 

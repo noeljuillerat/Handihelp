@@ -2,6 +2,7 @@ import React from "react";
 import Navigation from "../components/Navigation";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Formulaire from "../components/Formulaire";
+import Footer from "../components/Footer";
 
 const Contact = () => {
   return (
@@ -66,6 +67,9 @@ const Contact = () => {
           </ul>
         </div>
       </div>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };

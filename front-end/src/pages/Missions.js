@@ -1,10 +1,20 @@
 import React from "react";
+import Footer from "../components/Footer";
+import Navigation from "../components/Navigation";
 
 const Missions = () => {
   return (
-    <div>
-      <h1>Missions</h1>
-    </div>
+    <main>
+      <header>
+        <h1>Missions</h1>
+        <Navigation />
+      </header>
+
+      <section></section>
+      <footer>
+        <Footer />
+      </footer>
+    </main>
   );
 };
 
