@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class MainController {
     // Autowired
-    private MainService mainService;
+    private final MainService mainService;
 
     @Autowired
     public MainController(MainService mainService) {

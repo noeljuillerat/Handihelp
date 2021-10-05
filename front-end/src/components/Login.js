@@ -14,7 +14,7 @@ const FormulaireConnexion = () => {
       <div className="container">
         <h1>Connexion</h1>
 
-        <form className="form">
+        <form className="form" method="POST" action="http://localhost:8080/api/user/login">
           <input type="text" name="username" placeholder="Username" />
           <input type="password" name="password" placeholder="Password" />
           <button type="submit" id="login-button">
