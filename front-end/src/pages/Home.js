@@ -1,11 +1,12 @@
 import React from "react";
 import Formulaire from "../components/Formulaire";
+import Login from "../components/Login";
 
 const Home = () => {
   return (
     <main>
       <div className="home">
-        <Formulaire />
+        <Login />
       </div>
     </main>
   );
