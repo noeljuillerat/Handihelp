@@ -1,21 +1,24 @@
 import React from "react";
-import Login from "../components/Login"; 
-import LoginJavascript from "../components/LoginJavascript";
+import Login from "../components/Login";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
-const connexion = () => {
-    return (
-        <main>
-        <div className="Connexion">
-          <Login /> 
-          <LoginJavascript />
-        </div>
-      
+const Connexion = () => {
+  return (
+    <main>
+      <header>
+        <h1>Connexion</h1>
+        <Navigation />
+      </header>
+
       <section>
-
+        <Login />
       </section>
-      </main>
-
-    );
+      <footer>
+        <Footer />
+      </footer>
+    </main>
+  );
 };
 
 export default Connexion;

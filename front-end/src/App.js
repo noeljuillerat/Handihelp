@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 import Profil from "./pages/Profil";
 import Contact from "./pages/Contact";
 import Missions from "./pages/Missions";
+import Connexion from "./pages/Connexion";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/profil" component={Profil} />
           <Route path="/missions" component={Missions} />
           <Route path="/contact" component={Contact} />
+          <Route path="/connexion" component={Connexion} />
           <Route component={NotFound} />
         </Switch>
       </HashRouter>
