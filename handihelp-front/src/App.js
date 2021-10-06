@@ -2,8 +2,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NavLink,
+  NavLink, Link
 } from "react-router-dom";
+import React from "react";
 import Home from "./pages/Home";
 import Profil from "./pages/Profil";
 import Missions from "./pages/Missions";
@@ -11,6 +12,16 @@ import Contact from "./pages/Contact";
 import Connexion from "./pages/Connexion";
 
 function App() {
+  const [auth, setAuth] = React.useState(false)
+  const [role, setRole] = React.useState("")
+
+  const handleLogin = () => {
+    setAuth(true)
+  }
+  const handleLogout = () => {
+    setAuth(false)
+  }
+
   return (
     <div className="App container-fluid d-flex flex-column min-vh-100">
       <Router>
@@ -20,9 +31,13 @@ function App() {
             aria-label="Navigation"
           >
             <div className="container-fluid">
+              {auth ? 
               <a className="navbar-brand" href="/#">
                 HandiHelp
-              </a>
+              </a> : 
+              <a className="navbar-brand navbar-brand-logout" href="/#">
+              HandiHelp
+              </a>}
               <button
                 className="navbar-toggler"
                 type="button"
@@ -47,6 +62,7 @@ function App() {
                       Home
                     </NavLink>
                   </li>
+                  {auth ? 
                   <li className="nav-item">
                     <NavLink
                       exact
@@ -56,7 +72,8 @@ function App() {
                     >
                       Profil
                     </NavLink>
-                  </li>
+                  </li> : null}
+                  {auth ?
                   <li className="nav-item">
                     <NavLink
                       exact
@@ -66,7 +83,7 @@ function App() {
                     >
                       Missions
                     </NavLink>
-                  </li>
+                  </li> : null}
                   <li className="nav-item">
                     <NavLink
                       exact
@@ -77,6 +94,16 @@ function App() {
                       Contact
                     </NavLink>
                   </li>
+                  {auth ? 
+                  <li className="nav-item">
+                  <Link
+                    to="/"
+                    className="nav-link"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Link>
+                  </li> : 
                   <li className="nav-item">
                     <NavLink
                       exact
@@ -86,7 +113,7 @@ function App() {
                     >
                       Connexion
                     </NavLink>
-                  </li>
+                  </li>}
                 </ul>
               </div>
             </div>
@@ -95,7 +122,7 @@ function App() {
         <main className="container">
           <Switch>
             <Route path="/connexion">
-              <Connexion />
+              <Connexion onLogin={handleLogin}/>
             </Route>
             <Route path="/contact">
               <Contact />
@@ -111,13 +138,36 @@ function App() {
             </Route>
           </Switch>
         </main>
-        <footer className="footer mt-auto py-3 bg-light">
+
+        <footer className="bg-light text-center text-lg-start">
+          <div className="container p-4"> 
+            <div className="row">
+              <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h6 className="text-black">Mentions légales</h6>
+              </div>
+              <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h6 className="text-black">Politique en matière de cookies</h6>
+              </div>
+              <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h6 className="text-black">Politique de confidentialité</h6>
+              </div>
+              <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h6 className="text-black">Conditions d'utilisation</h6>
+              </div>
+            </div>
+          </div>
+          <div className="text-center p-3 copyright-footer"> 
+            © 2020 Copyright:<div className="text-dark">HandiHelp</div>
+          </div>
+        </footer>
+
+        {/* <footer className="footer mt-auto py-3 bg-light">
           <div className="container">
             <span className="text-muted">
               Place sticky footer content here.
             </span>
           </div>
-        </footer>
+        </footer> */}
       </Router>
     </div>
   );
