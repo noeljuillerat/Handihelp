@@ -1,5 +1,4 @@
 import React from "react";
-import '../styles/Home.css';
 
 const Home = () => {
     return (
@@ -13,11 +12,11 @@ const Home = () => {
 
                 <button type="button" className="btn btn-outline-success home-btn">
                     J'ai besoin d'aide
-                    <i class="bi-bell btn-icon"></i>
+                    <i className="bi-bell btn-icon"></i>
                 </button>
                 <button type="button" className="btn btn-outline-success home-btn">
                     Je veux aider
-                    <i class="bi-award btn-icon"></i>
+                    <i className="bi-award btn-icon"></i>
                 </button>
             </div>
 

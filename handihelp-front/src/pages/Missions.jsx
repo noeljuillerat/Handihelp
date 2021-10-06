@@ -1,5 +1,4 @@
 import React from "react";
-import '../styles/Missions.css';
 
 const MissionBlock = ({data}) => {
     return (
@@ -47,8 +46,8 @@ const Missions = () => {
             data.reverse()
             setMissions(data)
             console.log(data)
-        });
-      }, [])
+        }).catch(err => {console.log(err)});
+    }, [])
 
     return (
         <div>
