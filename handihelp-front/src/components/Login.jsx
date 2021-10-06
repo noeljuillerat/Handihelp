@@ -1,16 +1,18 @@
 import React from "react";
 function myFunction1() {
-        let height = document.getElementById("login-html");
-        height.style.height = "100%";
+    let minHeight = document.getElementById("login-wrap");
+    minHeight.style.minHeight = "550px";
+
     }
-    function myFunction2() {
-        let height = document.getElementById("login-html");
-        height.style.height = "150%";
-    }
+function myFunction2() {
+    let minHeight = document.getElementById("login-wrap");
+    minHeight.style.minHeight = "850px";
+
+}
 const Login = () => {
     
     return (
-        <div className="login-wrap">
+        <div id="login-wrap">
             <div id="login-html">
                 <input id="tab-1" type="radio" name="tab" className="sign-in" onClick={myFunction1}checked></input><label for="tab-1" className="tab">Connexion</label>
                 <input id="tab-2" type="radio" name="tab" className="sign-up" onClick={myFunction2}></input><label for="tab-2" className="tab">Inscription</label>
@@ -63,9 +65,6 @@ const Login = () => {
                             <input type="submit" className="button" value="Sign Up"></input>
                         </div>
                         <div className="hr"></div>
-                        <div className="foot-lnk">
-                            <label for="tab-1">Déja membre?</label>
-                        </div>
                     </div>
                 </div>
             </div>

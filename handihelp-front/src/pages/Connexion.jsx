@@ -3,7 +3,7 @@ import Login from "../components/Login"
 
 const Connexion = () => {
     return (
-        <div>
+        <div className="imageConnexion">
            <Login />
         </div>
     )

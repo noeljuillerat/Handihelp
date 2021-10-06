@@ -1,5 +1,5 @@
 
-.login-wrap{
+#login-wrap{
 	width:100%;
 	margin:auto;
 	max-width:525px;
@@ -10,9 +10,11 @@
 }
 #login-html{
 	width:100%;
+	height: 100%;
 	position:absolute;
 	padding:90px 70px 50px 70px;
-	background:rgba(40,57,101,.9);
+	background:$color-1;
+	// background:rgba(0,220,123, 0.5);
 
 }
 #login-html .sign-in-htm,
@@ -27,7 +29,9 @@
 	transition:all .4s linear;
 }
 
-
+.foot-lnk a {
+	text-decoration: none;
+}
 #login-html .sign-in,
 #login-html .sign-up,
 .login-form .group .check{
@@ -49,7 +53,7 @@
 #login-html .sign-in:checked + .tab,
 #login-html .sign-up:checked + .tab{
 	color:#fff;
-	border-color:#1161ee;
+	border-color:$color-2;
 }
 .login-form{
 	min-height:345px;
@@ -72,18 +76,18 @@
 	border:none;
 	padding:15px 20px;
 	border-radius:25px;
-	background:rgba(255,255,255,.1);
+	background:rgba(255,255,255,.7);
 }
 .login-form .group input[data-type="password"]{
 	text-security:circle;
 	-webkit-text-security:circle;
 }
 .login-form .group .label{
-	color:#aaa;
+	color:black;
 	font-size:12px;
 }
 .login-form .group .button{
-	background:#1161ee;
+	background:$color-2;
 }
 .login-form .group label .icon{
 	width:15px;
@@ -117,7 +121,7 @@
 	color:#fff;
 }
 .login-form .group .check:checked + label .icon{
-	background:#1161ee;
+	background:$color-2;
 }
 .login-form .group .check:checked + label .icon:before{
 	transform:scale(1) rotate(45deg);
