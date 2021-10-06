@@ -4,7 +4,6 @@ import emailjs from "emailjs-com";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
-  const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -15,7 +14,6 @@ const ContactForm = () => {
     let emailS = document.getElementById("email");
     let messageS = document.getElementById("message");
     let phoneS = document.getElementById("message");
-    let companyS = document.getElementById("message");
     let formMess = document.querySelector(".formMessage");
 
     const isEmail = () => {
@@ -56,7 +54,6 @@ const ContactForm = () => {
             name,
             email,
             message,
-            company,
             phone,
           },
           // your user ID (protégé par .env)
@@ -70,12 +67,10 @@ const ContactForm = () => {
             document.getElementById("name").classList.remove("error");
             document.getElementById("email").classList.remove("error");
             document.getElementById("message").classList.remove("error");
-            document.getElementById("company").classList.remove("error");
             document.getElementById("phone").classList.remove("error");
             setName("");
             setEmail("");
             setMessage("");
-            setCompany("");
             setPhone("");
 
             setTimeout(() => {
@@ -103,9 +98,6 @@ const ContactForm = () => {
       if (!message) {
         messageS.classList.add("error");
       }
-      if (!company) {
-        companyS.classList.add("error");
-      }
       if (!phone) {
         phoneS.classList.add("error");
       }
@@ -113,148 +105,108 @@ const ContactForm = () => {
   };
 
     return (
-        <div>
-<section class="mb-4">
-
+<section class="mb-6">
     <h2 class="h1-responsive font-weight-bold text-center my-4">Contactez nous</h2>
-                <p class="text-center w-responsive mx-auto mb-5">Avez-vous des questions?
-                    N'hésitez pas à nous contacter directement.
-                    Notre équipe reviendra vers vous pour vous aider.</p>
-
+                <p class="text-center w-responsive mx-auto mb-5">Avez-vous des questions?</p>
+                <p class="text-center w-responsive mx-auto mb-5">N'hésitez pas à nous contacter directement.
+                Notre équipe reviendra vers vous pour vous aider.</p>
     <div class="row">
-
-        <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
-                <div class="row">
-
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="name" name="name" class="form-control"/>
-                            <label for="name" class="">NOM Prénom</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="email" name="email" class="form-control"/>
-                            <label for="email" class="">Adresse mail</label>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="md-form mb-0">
-                            <input type="text" id="subject" name="subject" class="form-control"/>
-                            <label for="subject" class="">Sujet</label>
-                        </div>
+        <div className="col-md-9 mb-md-0 mb-5">
+            <form className='contact-form' id="contact-form" name="contact-form" >
+                {/* Nom Prénom */}
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="md-form mb-0">
+                            <input type="text" type="text"
+                                    id="name"
+                                    name="name"
+                                    required
+                                    onChange={(e) => setName(e.target.value)}
+                                    placeholder="Nom Prénom *"
+                                    value={name}
+                                    className="form-control" />
+                       </div>
                     </div>
                 </div>
-                <div class="row">
-
-                    <div class="col-md-12">
-
-                        <div class="md-form">
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                            <label for="message">Votre message</label>
-                        </div>
-
+                {/* Téléphone */}
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="md-form mb-0">
+                            <input
+                                type="text"
+                                id="phone"
+                                name="phone"
+                                onChange={(e) => setPhone(e.target.value)}
+                                placeholder="téléphone"
+                                value={phone}
+                                className="form-control" />                        </div>
                     </div>
                 </div>
-
+                {/* Email */}      
+                <div class="row">           
+                    <div className="email-content md-form mb-0">
+                        <label id="not-mail">Email non valide</label>
+                        <input
+                            type="mail"
+                            id="email"
+                            name="email"
+                            required
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Adresse mail *"
+                            value={email}
+                            className="form-control"
+                        />
+                    </div>                   
+                </div>
+                 {/* Sujet */}        
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="md-form mb-0">
+                            <input type="text"
+                                    id="subject"
+                                    name="subject"
+                                className="form-control"
+                                placeholder='Sujet *'
+                                required />
+                        </div>
+                    </div>
+                </div>
+                {/* Message */}       
+                <div classNames="row">
+                    <div className="col-md-12">
+                        <div className="md-form">
+                            <textarea
+                                id="message"
+                                name="message"
+                                onChange={(e) => setMessage(e.target.value)}
+                                placeholder="message *"
+                                value={message}
+                                required
+                                className="form-control md-textarea"
+                                rows="2"
+                            />
+                        </div>
+                    </div>
+                </div>
+                {/* Message informatif */}
+                <div className="formMessage"></div>
             </form>
 
-            <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Envoyer</a>
+            <div className="text-center text-md-left">
+                <input
+                    className="formButton hover button btn btn-primary"
+                    type="submit"
+                    value="Envoyer"
+                    onClick={(e) => handleSubmit(e)}
+                />
             </div>
-            <div class="status"></div>
+            <div className="status"></div>
         </div>
 
-        <div class="col-md-3 text-center">
-            <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p>EPSI Montpellier</p>
-                </li>
-
-                <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p>06</p>
-                </li>
-
-                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p>contact@mdbootstrap.com</p>
-                </li>
-            </ul>
-        </div>
-
+        
     </div>
 
-</section>
-
-
-
-
-
-
-
-    <form className="contact-form">
-      <h3>Contactez-nous</h3>
-      <div className="form-content">
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          onChange={(e) => setName(e.target.value)}
-          placeholder="nom *"
-          value={name}
-        />
-        <input
-          type="text"
-          id="company"
-          name="company"
-          onChange={(e) => setCompany(e.target.value)}
-          placeholder="société"
-          value={company}
-        />
-        <input
-          type="text"
-          id="phone"
-          name="phone"
-          onChange={(e) => setPhone(e.target.value)}
-          placeholder="téléphone"
-          value={phone}
-        />
-        <div className="email-content">
-          <label id="not-mail">Email non valide</label>
-          <input
-            type="mail"
-            id="email"
-            name="email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="email *"
-            value={email}
-          />
-        </div>
-        <textarea
-          id="message"
-          name="message"
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="message *"
-          value={message}
-          required
-        />
-      </div>
-      <input
-        className="formButton hover button"
-        type="submit"
-        value="Envoyer"
-        onClick={(e) => handleSubmit(e)}
-      />
-      <div className="formMessage"></div>
-    </form>
-        </div>
+    </section>
   );
 };
 

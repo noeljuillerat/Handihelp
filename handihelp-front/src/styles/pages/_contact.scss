@@ -1,0 +1,72 @@
+.contact-form {
+  margin: 7% 0 0 24%;
+  max-width: 50%;
+  position: relative;
+  max-width: 350px;
+
+  h2 {
+    margin-bottom: 20px;
+
+    &:after {
+      content: "";
+      height: 70px;
+      width: 70px;
+      border: 1px $color-2 solid;
+      border-radius: 50%;
+      position: absolute;
+      top: -22px;
+      left: 133px;
+      z-index: -1;
+    }
+  }
+
+  .email-content {
+    #not-mail {
+      display: none;
+      position: absolute;
+      top: 8px;
+      color: red;
+      right: 0;
+      transform-origin: 50% 50%;
+    }
+    @keyframes dongle {
+      0% {
+        transform: translate(0px, 0px);
+      }
+      10% {
+        transform: translate(-10px, 0px);
+      }
+      20% {
+        transform: translate(10px, 0px);
+      }
+      30% {
+        transform: translate(-10px, 0px);
+      }
+      40% {
+        transform: translate(10px, 0px);
+      }
+      50% {
+        transform: translate(-10px, 0px);
+      }
+      60% {
+        transform: translate(10px, 0px);
+      }
+      70% {
+        transform: translate(-10px, 0px);
+      }
+      80% {
+        transform: translate(10px, 0px);
+      }
+      90% {
+        transform: translate(-10px, 0px);
+      }
+      100% {
+        transform: translate(0px, 0px);
+      }
+    }
+  }
+
+  .error::placeholder {
+    color: red;
+  }
+}
