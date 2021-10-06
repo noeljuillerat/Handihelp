@@ -5,12 +5,13 @@ import Formulaire from "../components/Formulaire";
 import Login from "../components/Login";
 import Navigation from "../components/Navigation";
 import Missions from "./Missions";
+import LoginJavascript from "../components/LoginJavascript";
 
 const Home = () => {
   return (
     <main>
       <div className="home">
-        <Login />
+       
       </div>
       <header>
         <Navigation />
@@ -18,7 +19,8 @@ const Home = () => {
       <section>
         {/* Formulaire juste pour le test */}
         <div className="home">
-          <Formulaire />
+        <Login />
+        <LoginJavascript />
         </div>
       </section>
       <section>
