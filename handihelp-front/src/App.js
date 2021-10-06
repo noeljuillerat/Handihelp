@@ -10,6 +10,7 @@ import Profil from "./pages/Profil";
 import Missions from "./pages/Missions";
 import Contact from "./pages/Contact";
 import Connexion from "./pages/Connexion";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [auth, setAuth] = React.useState(false)
