@@ -9,6 +9,7 @@ import Profil from "./pages/Profil";
 import Missions from "./pages/Missions";
 import Contact from "./pages/Contact";
 import Connexion from "./pages/Connexion";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -94,21 +95,12 @@ function App() {
         </header>
         <main className="container">
           <Switch>
-            <Route path="/connexion">
-              <Connexion />
-            </Route>
-            <Route path="/contact">
-              <Contact />
-            </Route>
-            <Route path="/missions">
-              <Missions />
-            </Route>
-            <Route path="/profil">
-              <Profil />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
+            <Route path="/" exact component={Home} />
+            <Route path="/profil" component={Profil} />
+            <Route path="/missions" component={Missions} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/connexion" component={Connexion} />
+            <Route component={NotFound} />
           </Switch>
         </main>
         <footer className="footer mt-auto py-3 bg-light">
