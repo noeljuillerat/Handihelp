@@ -47,8 +47,8 @@ const Missions = () => {
             data.reverse()
             setMissions(data)
             console.log(data)
-        });
-      }, [])
+        }).catch(err => {console.log(err)});
+    }, [])
 
     return (
         <div>

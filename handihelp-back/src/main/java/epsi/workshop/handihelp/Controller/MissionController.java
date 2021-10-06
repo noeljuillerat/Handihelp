@@ -18,7 +18,7 @@ public class MissionController {
     public MissionController(MissionService missionService) {
         this.missionService = missionService;
     }
-    @CrossOrigin(origins = "http://localhost:3000")
+
     @GetMapping("/list")
     public Iterable<Mission> getAllMissions() {
         return missionService.getAllMission();
