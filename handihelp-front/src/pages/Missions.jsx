@@ -1,5 +1,4 @@
 import React from "react";
-import '../styles/Missions.css';
 
 const MissionBlock = ({data}) => {
     return (
