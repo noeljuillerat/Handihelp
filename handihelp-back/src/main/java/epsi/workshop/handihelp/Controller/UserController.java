@@ -1,6 +1,9 @@
 package epsi.workshop.handihelp.Controller;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import epsi.workshop.handihelp.Service.UserService;
+import epsi.workshop.handihelp.dao.dto.UserDto;
 import epsi.workshop.handihelp.dao.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,16 +28,16 @@ public class UserController {
         return userService.getAllUsers();
     }
     @GetMapping("/find")
-    public User getOneUser(@RequestParam String userId) {
-        return userService.getUserById(Long.valueOf(userId));
+    public User getOneUser(@RequestParam String username) {
+        return userService.getUserByUsername(username);
     }
 
-    @PostMapping(value = "/login", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String createUser(@RequestBody MultiValueMap<String, String> formData) {
-        System.out.println(formData);
-        String message = formData.getFirst("username") + " : " + formData.getFirst("password");
-//        String value = formData.getFirst("test");
-//        String message = "Valeur : " + value;
-        return message;
+    @PostMapping(value = "/login")
+    public String loginUser(@RequestBody String body) {
+        return userService.loginUser(body);
+    }
+    @PostMapping(value = "/create")
+    public String createUser(@RequestBody String body) {
+        return userService.createUser(body);
     }
 }

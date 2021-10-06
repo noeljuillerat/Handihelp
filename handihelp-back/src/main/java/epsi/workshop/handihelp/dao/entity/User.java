@@ -1,6 +1,9 @@
 package epsi.workshop.handihelp.dao.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +30,9 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "telephone")
+    private String telephone;
+
     // many to one
     @ManyToOne
     @JoinColumn(name = "role_user_id", nullable = false)
@@ -52,13 +58,14 @@ public class User {
     }
 
     public User(String nom, String prenom, String username, String password,
-                String email, RoleUser roleUser, List<Referent> referents,
+                String email, String telephone, RoleUser roleUser, List<Referent> referents,
                 List<Mission> missionsCrees, List<Mission> missionsAcceptees) {
         this.nom = nom;
         this.prenom = prenom;
         this.username = username;
         this.password = password;
         this.email = email;
+        this.telephone = telephone;
         this.roleUser = roleUser;
         this.referents = referents;
         this.missionsCrees = missionsCrees;
@@ -145,19 +152,25 @@ public class User {
         this.missionsAcceptees = missionsAcceptees;
     }
 
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
+        return "{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", roleUser=" + roleUser +
-                ", referents=" + referents +
-                ", missionsCrees=" + missionsCrees +
-                ", missionsAcceptees=" + missionsAcceptees +
+                ", telephone='" + telephone + '\'' +
+                ", roleUser=" + roleUser.getRole() +
                 '}';
     }
 }

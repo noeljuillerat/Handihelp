@@ -21,6 +21,10 @@ public class RoleUserService {
         return roleUserRepository.findAll();
     }
 
+    public RoleUser getRoleById(Long id) {
+        return roleUserRepository.findById(id).orElseThrow();
+    }
+
     @Transactional
     public void saveRole(RoleUser roleUser) {
         roleUserRepository.save(roleUser);
