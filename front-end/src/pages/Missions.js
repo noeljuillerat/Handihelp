@@ -1,4 +1,5 @@
 import React from "react";
+import CreateMission from "../components/CreateMission";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 
@@ -10,7 +11,9 @@ const Missions = () => {
         <Navigation />
       </header>
 
-      <section></section>
+      <section>
+        <CreateMission />
+      </section>
       <footer>
         <Footer />
       </footer>
