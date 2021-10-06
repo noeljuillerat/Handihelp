@@ -20,3 +20,11 @@
 .main-brand {
   max-height: 90px;
 }
+
+.home-btn:hover,
+.home-btn:focus {
+  a {
+    color: whitesmoke !important;
+  }
+}
+

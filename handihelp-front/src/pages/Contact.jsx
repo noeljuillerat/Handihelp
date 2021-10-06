@@ -9,7 +9,7 @@ const Contact = () => {
             </div>
 
          <div className="col-md-12 home-right">
-            <img src="/home.png" alt="Home banner"></img>
+           <img src="/home.png" alt="Home banner"></img>
         </div> 
     </div>
     )
