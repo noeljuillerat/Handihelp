@@ -15,4 +15,25 @@
 .imageConnexion{
     background: url("../../assets/fond.png") no-repeat center;
     background-size: contain;
+    padding: 30px;
+}
+
+.personnage1 {
+    max-width: 130%;
+    max-height: auto;
+}
+.personnage2 {
+    max-width: auto;
+    max-height: 80vh;
+}
+
+.divperso {
+    text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+    .divperso
+    {
+        display: none;
+    }
 }

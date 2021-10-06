@@ -21,7 +21,7 @@ const Home = () => {
             </div>
 
             <div className="col-md-6 home-right">
-                <img src="/home.png" alt="Home banner"></img>
+                <img src="/home-ban.png" alt="Home banner"></img>
             </div>
         </div>
     )

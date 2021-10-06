@@ -9,7 +9,13 @@ function myFunction2() {
     minHeight.style.minHeight = "850px";
 
 }
-const Login = () => {
+const Login = ({onSubmit}) => {
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        onSubmit()
+    }
     
     return (
         <div id="login-wrap">
@@ -28,7 +34,7 @@ const Login = () => {
                         </div>
 
                         <div className="group">
-                            <input type="submit" className="button" value="Sign In"></input>
+                            <input type="submit" className="button" value="Sign In" onClick={handleSubmit}></input>
                         </div>
                         <div className="hr"></div>
                         <div className="foot-lnk">

@@ -34,10 +34,12 @@ function App() {
             <div className="container-fluid">
               {auth ? 
               <a className="navbar-brand" href="/#">
-                HandiHelp
+                <img src="logo.png" className="main-logo"/>
+                <img src="brand.png" className="main-brand"/>
               </a> : 
               <a className="navbar-brand navbar-brand-logout" href="/#">
-              HandiHelp
+                <img src="logo.png" className="main-logo"/>
+                <img src="brand.png" className="main-brand"/>
               </a>}
               <button
                 className="navbar-toggler"
@@ -120,7 +122,7 @@ function App() {
             </div>
           </nav>
         </header>
-        <main className="container">
+        <main className="container-fluid">
           <Switch>
             <Route path="/connexion">
               <Connexion onLogin={handleLogin}/>
