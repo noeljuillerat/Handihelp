@@ -2,7 +2,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NavLink, Link
+  NavLink,
+  Link,
 } from "react-router-dom";
 import React from "react";
 import Home from "./pages/Home";
@@ -11,17 +12,18 @@ import Missions from "./pages/Missions";
 import Contact from "./pages/Contact";
 import Connexion from "./pages/Connexion";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
 
 function App() {
-  const [auth, setAuth] = React.useState(false)
-  const [role, setRole] = React.useState("")
+  const [auth, setAuth] = React.useState(false);
+  const [role, setRole] = React.useState("");
 
   const handleLogin = () => {
-    setAuth(true)
-  }
+    setAuth(true);
+  };
   const handleLogout = () => {
-    setAuth(false)
-  }
+    setAuth(false);
+  };
 
   return (
     <div className="App container-fluid d-flex flex-column min-vh-100">
@@ -32,13 +34,15 @@ function App() {
             aria-label="Navigation"
           >
             <div className="container-fluid">
-              {auth ? 
-              <a className="navbar-brand" href="/#">
-                HandiHelp
-              </a> : 
-              <a className="navbar-brand navbar-brand-logout" href="/#">
-              HandiHelp
-              </a>}
+              {auth ? (
+                <a className="navbar-brand" href="/#">
+                  HandiHelp
+                </a>
+              ) : (
+                <a className="navbar-brand navbar-brand-logout" href="/#">
+                  HandiHelp
+                </a>
+              )}
               <button
                 className="navbar-toggler"
                 type="button"
@@ -63,28 +67,30 @@ function App() {
                       Home
                     </NavLink>
                   </li>
-                  {auth ? 
-                  <li className="nav-item">
-                    <NavLink
-                      exact
-                      to="/profil"
-                      className="nav-link"
-                      activeClassName="active"
-                    >
-                      Profil
-                    </NavLink>
-                  </li> : null}
-                  {auth ?
-                  <li className="nav-item">
-                    <NavLink
-                      exact
-                      to="/missions"
-                      className="nav-link"
-                      activeClassName="active"
-                    >
-                      Missions
-                    </NavLink>
-                  </li> : null}
+                  {auth ? (
+                    <li className="nav-item">
+                      <NavLink
+                        exact
+                        to="/profil"
+                        className="nav-link"
+                        activeClassName="active"
+                      >
+                        Profil
+                      </NavLink>
+                    </li>
+                  ) : null}
+                  {auth ? (
+                    <li className="nav-item">
+                      <NavLink
+                        exact
+                        to="/missions"
+                        className="nav-link"
+                        activeClassName="active"
+                      >
+                        Missions
+                      </NavLink>
+                    </li>
+                  ) : null}
                   <li className="nav-item">
                     <NavLink
                       exact
@@ -95,26 +101,24 @@ function App() {
                       Contact
                     </NavLink>
                   </li>
-                  {auth ? 
-                  <li className="nav-item">
-                  <Link
-                    to="/"
-                    className="nav-link"
-                    onClick={handleLogout}
-                  >
-                    Logout
-                  </Link>
-                  </li> : 
-                  <li className="nav-item">
-                    <NavLink
-                      exact
-                      to="/connexion"
-                      className="nav-link"
-                      activeClassName="active"
-                    >
-                      Connexion
-                    </NavLink>
-                  </li>}
+                  {auth ? (
+                    <li className="nav-item">
+                      <Link to="/" className="nav-link" onClick={handleLogout}>
+                        Logout
+                      </Link>
+                    </li>
+                  ) : (
+                    <li className="nav-item">
+                      <NavLink
+                        exact
+                        to="/connexion"
+                        className="nav-link"
+                        activeClassName="active"
+                      >
+                        Connexion
+                      </NavLink>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
@@ -122,26 +126,20 @@ function App() {
         </header>
         <main className="container">
           <Switch>
-            <Route path="/connexion">
-              <Connexion onLogin={handleLogin}/>
+            <Route path="/" exact component={Home} />
+            <Route path="/profil" component={Profil} />
+            <Route path="/missions" component={Missions} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/about" component={About} />
+            <Route path="/connexion" component={Connexion}>
+              <Connexion onLogin={handleLogin} />
             </Route>
-            <Route path="/contact">
-              <Contact />
-            </Route>
-            <Route path="/missions">
-              <Missions />
-            </Route>
-            <Route path="/profil">
-              <Profil />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
+            <Route component={NotFound} />
           </Switch>
         </main>
 
         <footer className="bg-light text-center text-lg-start">
-          <div className="container p-4"> 
+          <div className="container p-4">
             <div className="row">
               <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h6 className="text-black">Mentions légales</h6>
@@ -157,7 +155,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="text-center p-3 copyright-footer"> 
+          <div className="text-center p-3 copyright-footer">
             © 2020 Copyright:<div className="text-dark">HandiHelp</div>
           </div>
         </footer>

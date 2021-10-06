@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <div className="home-container row align-items-center">
@@ -10,12 +10,16 @@ const Home = () => {
                     <p>Le site d'entraide entre apprenants et apprenants en situation d'handicap.</p>
                 </blockquote>
 
-                <button type="button" className="btn btn-outline-success home-btn">
+                <button type="button" className="btn btn-outline-success home-btn ">
+                <Link to={`/connexion`} className="link-success" >
                     J'ai besoin d'aide
+                    </Link>
                     <i className="bi-bell btn-icon"></i>
                 </button>
+
                 <button type="button" className="btn btn-outline-success home-btn">
-                    Je veux aider
+                <Link to={`/connexion`} className="link-success">
+                Je veux aider</Link>
                     <i className="bi-award btn-icon"></i>
                 </button>
             </div>
