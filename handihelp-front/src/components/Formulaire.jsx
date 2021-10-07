@@ -111,11 +111,11 @@ const ContactForm = () => {
                 <p class="text-center w-responsive mx-auto mb-5">N'hésitez pas à nous contacter directement.
                 Notre équipe reviendra vers vous pour vous aider.</p>
     <div class="row">
-        <div className="col-md-9 mb-md-0 mb-5">
-            <form className='contact-form' id="contact-form" name="contact-form" >
+          <div align="center">
+            <form className='contact-form' id="contact-form" name="contact-form" style={{margin: "0"}} >
                 {/* Nom Prénom */}
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                         <div className="md-form mb-0">
                             <input type="text" type="text"
                                     id="name"
@@ -130,7 +130,7 @@ const ContactForm = () => {
                 </div>
                 {/* Téléphone */}
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                         <div className="md-form mb-0">
                             <input
                                 type="text"
@@ -197,6 +197,7 @@ const ContactForm = () => {
                     className="formButton hover button btn btn-primary"
                     type="submit"
                     value="Envoyer"
+                    style={{width: "30%"}}
                     onClick={(e) => handleSubmit(e)}
                 />
             </div>
