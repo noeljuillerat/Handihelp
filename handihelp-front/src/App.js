@@ -23,7 +23,6 @@ function App() {
   const handleLogin = (user) => {
     setAuth(true);
     setLoggedUser(user);
-    console.log(user.roleUser.role)
   };
   const handleLogout = () => {
     setAuth(false);
@@ -56,7 +55,10 @@ function App() {
               <div className="collapse navbar-collapse" id="navBarNavigation">
                 <ul className="nav navbar-nav mb-2 mb-lg-0 navbar-right">
                   <li className="nav-item">
-                    <NavLink exact to="/" className="nav-link" activeClassName="active">Home</NavLink>
+                    <NavLink exact to="/" className="nav-link" activeClassName="active">Accueil</NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink exact to="/about" className="nav-link" activeClassName="active">A propos</NavLink>
                   </li>
                   {/* Conditionnelle pour les liens de navigation à masquer lorsque Logout */}
                   {auth ? (
@@ -95,7 +97,9 @@ function App() {
             <Route path="/profil" component={Profil}>
               <Profil user={loggedUser} />
             </Route>
-            <Route path="/missions" component={Missions} />
+            <Route path="/missions" component={Missions}>
+              <Missions user={loggedUser}/>
+            </Route>
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
             <Route path="/connexion" component={Connexion}>
