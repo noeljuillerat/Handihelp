@@ -5,7 +5,6 @@
 	max-width:525px;
 	min-height:550px;
 	position:relative;
-
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 #login-html{
@@ -52,9 +51,17 @@
 }
 #login-html .sign-in:checked + .tab,
 #login-html .sign-up:checked + .tab{
-	color:#fff;
+	color:black;
+	background-color: rgba(255,255,255,.2);
 	border-color:$color-2;
+
 }
+#login-html .sign-in + .tab,
+#login-html .sign-up + .tab{
+	cursor: pointer;
+}
+
+
 .login-form{
 	min-height:345px;
 	position:relative;
@@ -68,8 +75,15 @@
 .login-form .group .input,
 .login-form .group .button{
 	width:100%;
-	color:#fff;
+	color:black;
 	display:block;
+}
+
+.login-form .group .button{
+	width:100%;
+	display:block;
+	color:white;
+
 }
 .login-form .group .input,
 .login-form .group .button{
