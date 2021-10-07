@@ -92,7 +92,9 @@ function App() {
         <main className="container-fluid">
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/profil" component={Profil} />
+            <Route path="/profil" component={Profil}>
+              <Profil user={loggedUser} />
+            </Route>
             <Route path="/missions" component={Missions} />
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
