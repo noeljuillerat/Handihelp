@@ -23,7 +23,6 @@ function App() {
   const handleLogin = (user) => {
     setAuth(true);
     setLoggedUser(user);
-    console.log(user.roleUser.role);
   };
   const handleLogout = () => {
     setAuth(false);
@@ -156,8 +155,12 @@ function App() {
         <main className="container-fluid">
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/profil" component={Profil} />
-            <Route path="/missions" component={Missions} />
+            <Route path="/profil" component={Profil}>
+              <Profil user={loggedUser} />
+            </Route>
+            <Route path="/missions" component={Missions}>
+              <Missions user={loggedUser}/>
+            </Route>
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
             <Route path="/connexion" component={Connexion}>
