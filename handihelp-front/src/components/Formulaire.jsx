@@ -194,7 +194,7 @@ const ContactForm = () => {
 
             <div className="text-center text-md-left">
                 <input
-                    className="formButton hover button btn btn-primary"
+                    className="formButton hover button btn btn-success"
                     type="submit"
                     value="Envoyer"
                     style={{width: "30%"}}
