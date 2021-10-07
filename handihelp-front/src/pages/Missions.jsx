@@ -80,24 +80,34 @@ const CreateMissionForm = ({onCreateMission, user}) => {
 
 
 const MissionBlock = ({data}) => {
+    const[statut, setStatut] = React.useState("")
+    const[refresh, setRefresh] = React.useState(0)
+
+    React.useEffect(() => {
+        setStatut(data.statutMission.statut)
+    }, [])
+
+    const handleAcceptMission = () => {
+        setStatut("EN_COURS")
+    }
     return (
-        <div className="card mission-block">
+        <div className="card mission-block text-center">
             {/* Conditionnelle pour changer la couleur du header de la mission selon le statut */}
-            {data.statutMission.statut === "DEPOSEE" ? <h5 className="card-header"><i className="bi-bell"></i> Nouvelle mission</h5> : null}
-            {data.statutMission.statut === "EN_COURS" ? <h5 className="card-header bg-warning"><i className="bi-patch-check"></i> Mission acceptée</h5> : null}
-            {data.statutMission.statut === "TERMINEE" ? <h5 className="card-header bg-success"><i className="bi-patch-check-fill"></i> Mission terminée</h5> : null}
+            {statut === "DEPOSEE" ? <h5 className="card-header"><i className="bi-bell"></i> Nouvelle mission</h5> : null}
+            {statut === "EN_COURS" ? <h5 className="card-header bg-warning"><i className="bi-patch-check"></i> Mission acceptée</h5> : null}
+            {statut === "TERMINEE" ? <h5 className="card-header bg-success"><i className="bi-patch-check-fill"></i> Mission terminée</h5> : null}
             
-            <div className="card-body">
+            <div className="card-body text-center">
                 <h5 className="card-title">{data.titre}</h5>
-                <p className="card-text">{data.description}</p>
-                <p className="card-text"><i className="bi-calendar-3"></i>Date : {data.dateHeure}</p>
-                <p className="card-text"><i className="bi-clock"></i>Temps estimé : {data.duree}</p>
-                <p className="card-text"><i className="bi-bullseye"></i>Lieu de la mission: {data.lieu}</p>
+                <p className="card-text"><i className="bi-pen"></i> {data.description}</p>
+                <p className="card-text"><i className="bi-calendar"></i> Date : {data.dateHeure}</p>
+                <p className="card-text"><i className="bi-clock"></i> Temps estimé : {data.duree}</p>
+                <p className="card-text"><i className="bi-bullseye"></i> Lieu de la mission: {data.lieu}</p>
 
                 {/* Conditionnelle pour déterminer si le bouton est cliquable */}
-                {data.statutMission.statut === "DEPOSEE" ?
+                {statut === "DEPOSEE" ?
                     // Si la mission est : DEPOSEE
-                    <button href="/#" className="btn btn-outline-success">
+                    <button href="/#" className="btn btn-outline-success" onClick={handleAcceptMission}>
                         Accepter la mission
                         <i className="bi-award"></i>
                     </button> :
