@@ -14,6 +14,7 @@ import Connexion from "./pages/Connexion";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import AccountCreated from "./pages/AccountCreated";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   const [loggedUser, setLoggedUser] = React.useState([]);
@@ -94,18 +95,22 @@ function App() {
         <main className="container-fluid">
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/profil" component={Profil}>
-              <Profil user={loggedUser} />
-            </Route>
-            <Route path="/missions" component={Missions}>
-              <Missions user={loggedUser}/>
-            </Route>
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
-            <Route path="/connexion" component={Connexion}>
+            <Route path="/connexion">
               <Connexion onLogin={handleLogin} />
             </Route>
             <Route path="/new-account" component={AccountCreated} />
+
+            <PrivateRoute isAuth={auth}>
+              <Route path="/profil">
+                <Profil user={loggedUser} />
+              </Route>
+              <Route path="/missions">
+                <Missions user={loggedUser}/>
+              </Route>
+            </PrivateRoute>
+
             <Route component={NotFound} />
           </Switch>
         </main>

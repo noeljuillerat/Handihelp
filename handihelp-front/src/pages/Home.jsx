@@ -10,18 +10,18 @@ const Home = () => {
                     <p>Le site d'entraide entre apprenants et apprenants en situation d'handicap.</p>
                 </blockquote>
 
+                <Link to="/missions">
                 <button type="button" className="btn btn-outline-success home-btn ">
-                <Link to={`/connexion`} className="link-success" style={{textDecoration: "none"}}  >
                     J'ai besoin d'aide
-                    </Link>
                     <i className="bi-bell btn-icon"></i>
                 </button>
-
+                </Link>
+                <Link to="/missions">
                 <button type="button" className="btn btn-outline-success home-btn">
-                    <Link to={`/connexion`} className="link-success" style={{ textDecoration: "none" }}>
-                Je veux aider</Link>
+                    Je veux aider
                     <i className="bi-award btn-icon"></i>
                 </button>
+                </Link>
             </div>
 
             <div className="col-md-6 home-right">
