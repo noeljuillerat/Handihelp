@@ -11,14 +11,14 @@ const Home = () => {
                 </blockquote>
 
                 <button type="button" className="btn btn-outline-success home-btn ">
-                <Link to={`/connexion`} className="link-success" >
+                <Link to={`/connexion`} className="link-success" style={{textDecoration: "none"}}  >
                     J'ai besoin d'aide
                     </Link>
                     <i className="bi-bell btn-icon"></i>
                 </button>
 
                 <button type="button" className="btn btn-outline-success home-btn">
-                <Link to={`/connexion`} className="link-success">
+                    <Link to={`/connexion`} className="link-success" style={{ textDecoration: "none" }}>
                 Je veux aider</Link>
                     <i className="bi-award btn-icon"></i>
                 </button>
@@ -26,6 +26,7 @@ const Home = () => {
 
             <div className="col-md-6 home-right">
                 <img src="/home-ban.png" alt="Home banner"></img>
+
             </div>
         </div>
     )

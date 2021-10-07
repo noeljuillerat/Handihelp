@@ -20,7 +20,9 @@ public class StatutMissionService {
     public Iterable<StatutMission> getAllStatutMission() {
         return statutMissionRepository.findAll();
     }
-
+    public StatutMission getStatutById(Long id) {
+        return statutMissionRepository.findById(id).orElseThrow();
+    }
     @Transactional
     public void saveStatutMission(StatutMission statutMission) {
         statutMissionRepository.save(statutMission);

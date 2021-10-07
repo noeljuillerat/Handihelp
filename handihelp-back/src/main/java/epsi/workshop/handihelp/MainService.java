@@ -32,7 +32,7 @@ public class MainService {
     public String loadData() {
         // USER ROLES
         RoleUser roleUser1 = new RoleUser();
-        roleUser1.setRole("ASH"); //TODO : renommer
+        roleUser1.setRole("APPRENANT"); //TODO : renommer
         RoleUser roleUser2 = new RoleUser();
         roleUser2.setRole("BENEVOLE");
         roleUserService.saveRole(roleUser1);
