@@ -15,9 +15,9 @@ const NotFound = () => {
                 <div className="error-details">
                     Désolé, une erreur s'est produite, la page demandée n'a pas été trouvé !
             </div>
-            <div classNames="error-actions">
+            <div className="error-actions">
                 <Link to={`/`}>
-                    <span class="glyphicon glyphicon-home" className="btn btn-primary btn-lg mt-5">Retour à l'accueil</span>
+                    <span className="glyphicon glyphicon-home" className="btn btn-primary btn-lg mt-5">Retour à l'accueil</span>
                 </Link>
                 <Link to={'/contact'} className="btn btn-default btn-lg mt-5">
                 Contacter le support<span className="glyphicon glyphicon-envelope"></span>
