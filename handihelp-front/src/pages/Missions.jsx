@@ -1,5 +1,52 @@
 import React from "react";
 
+const CreateMissionForm = () => {
+    return (
+        <form class="needs-validation" novalidate>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <h3 for="validationCustom01">Titre</h3>
+          <input type="text" class="form-control" id="validationCustom01"  required/>
+          <div class="valid-feedback">
+            Ca marche!
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <h3 for="validationCustom02">Date</h3>
+          <input type="text" class="form-control" id="validationCustom02" required/>
+          <div class="valid-feedback">
+            Ca marche!
+          </div>
+        </div>
+       
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <h3 for="validationCustom03">Lieu</h3>
+          <input type="text" class="form-control" id="validationCustom03" required />
+          <div class="invalid-feedback">
+            Mettre un lieu valide!
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <h3 for="validationCustom04">Durée</h3>
+          <input type="text" class="form-control" id="validationCustom04" required />
+          <div class="invalid-feedback">
+            Mettre une durée valide!
+          </div>
+        </div>
+        <div class="form-group col-12">
+          <h3 for="discription">Description de la mission</h3>
+          <textarea class="form-control" id="description" rows="3"></textarea>
+        </div>
+      </div>
+      
+      <button class="btn btn-success" type="submit">Envoyer</button>
+    </form>
+    )
+}
+
+
 const MissionBlock = ({data}) => {
     return (
         <div className="card mission-block">
