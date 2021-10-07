@@ -21,10 +21,15 @@
   max-height: 90px;
 }
 
+@media (max-width: 640px) {
+	.main-brand {max-height: 3em;}
+  .main-logo {max-height: 3em;}
+
+}
+
 .home-btn:hover,
 .home-btn:focus {
   a {
     color: whitesmoke !important;
   }
 }
-
