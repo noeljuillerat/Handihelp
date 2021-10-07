@@ -23,7 +23,7 @@ function App() {
   const handleLogin = (user) => {
     setAuth(true);
     setLoggedUser(user);
-    console.log(user.roleUser.role)
+    console.log(user.roleUser.role);
   };
   const handleLogout = () => {
     setAuth(false);
@@ -35,51 +35,115 @@ function App() {
       <Router>
         {/* Header : barre de navigation */}
         <header>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Navigation">
+          <nav
+            className="navbar navbar-expand-lg navbar-light bg-light rounded"
+            aria-label="Navigation"
+          >
             <div className="container-fluid">
               {/* Conditionnelle pour changer une classe du logo si Login/Logout */}
-              {auth ? 
-              <a className="navbar-brand" href="/#">
-                <img src="logo.png" className="main-logo" alt="Logo de HandiHelp"/>
-                <img src="brand.png" className="main-brand" alt="Brand Logo de HandiHelp"/>
-              </a> : 
-              <a className="navbar-brand navbar-brand-logout" href="/#">
-                <img src="logo.png" className="main-logo" alt="Logo de HandiHelp"/>
-                <img src="brand.png" className="main-brand" alt="Brand Logo de HandiHelp"/>
-              </a>}
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                      data-bs-target="#navBarNavigation" aria-controls="navBarNavigation"
-                      aria-expanded="false" aria-label="Toggle navigation">
+              {auth ? (
+                <a className="navbar-brand" href="/#">
+                  <img
+                    src="logo.png"
+                    className="main-logo"
+                    alt="Logo de HandiHelp"
+                  />
+                  <img
+                    src="brand.png"
+                    className="main-brand"
+                    alt="Brand Logo de HandiHelp"
+                  />
+                </a>
+              ) : (
+                <a className="navbar-brand navbar-brand-logout" href="/#">
+                  <img
+                    src="logo.png"
+                    className="main-logo"
+                    alt="Logo de HandiHelp"
+                  />
+                  <img
+                    src="brand.png"
+                    className="main-brand"
+                    alt="Brand Logo de HandiHelp"
+                  />
+                </a>
+              )}
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navBarNavigation"
+                aria-controls="navBarNavigation"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
                 <span className="navbar-toggler-icon"></span>
               </button>
 
               <div className="collapse navbar-collapse" id="navBarNavigation">
                 <ul className="nav navbar-nav mb-2 mb-lg-0 navbar-right">
                   <li className="nav-item">
-                    <NavLink exact to="/" className="nav-link" activeClassName="active">Home</NavLink>
+                    <NavLink
+                      exact
+                      to="/"
+                      className="nav-link"
+                      activeClassName="active"
+                    >
+                      Home
+                    </NavLink>
                   </li>
                   {/* Conditionnelle pour les liens de navigation à masquer lorsque Logout */}
                   {auth ? (
                     <li className="nav-item">
-                      <NavLink exact to="/profil" className="nav-link" activeClassName="active">Profil</NavLink>
+                      <NavLink
+                        exact
+                        to="/profil"
+                        className="nav-link"
+                        activeClassName="active"
+                      >
+                        Profil
+                      </NavLink>
                     </li>
                   ) : null}
                   {auth ? (
                     <li className="nav-item">
-                      <NavLink exact to="/missions" className="nav-link" activeClassName="active">Missions</NavLink>
+                      <NavLink
+                        exact
+                        to="/missions"
+                        className="nav-link"
+                        activeClassName="active"
+                      >
+                        Missions
+                      </NavLink>
                     </li>
                   ) : null}
                   <li className="nav-item">
-                    <NavLink exact to="/contact" className="nav-link" activeClassName="active">Contact</NavLink>
+                    <NavLink
+                      exact
+                      to="/contact"
+                      className="nav-link"
+                      activeClassName="active"
+                    >
+                      Contact
+                    </NavLink>
                   </li>
                   {/* Conditionnelle pour le lien de navigation "Connexion" OU "Logout" */}
                   {auth ? (
                     <li className="nav-item">
-                      <Link to="/" className="nav-link" onClick={handleLogout}>Logout</Link>
+                      <Link to="/" className="nav-link" onClick={handleLogout}>
+                        Logout
+                      </Link>
                     </li>
                   ) : (
                     <li className="nav-item">
-                      <NavLink exact to="/connexion" className="nav-link" activeClassName="active">Connexion</NavLink>
+                      <NavLink
+                        exact
+                        to="/connexion"
+                        className="nav-link"
+                        activeClassName="active"
+                      >
+                        Connexion
+                      </NavLink>
                     </li>
                   )}
                 </ul>
@@ -97,7 +161,7 @@ function App() {
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
             <Route path="/connexion" component={Connexion}>
-              <Connexion onLogin={handleLogin}/>
+              <Connexion onLogin={handleLogin} />
             </Route>
             <Route path="/new-account" component={AccountCreated} />
             <Route component={NotFound} />
